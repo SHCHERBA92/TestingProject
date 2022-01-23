@@ -43,11 +43,15 @@
             </div>
 
             <div th:each="all_goods : ${AllGoods}">
-                <div class="row">
+                <div class="row border border-warning" th:unless="${all_goods.getName().equals(' ')}">
                     <div class="col-2"></div>
                     <div class="col-4 text-center" th:text="${all_goods.getName()}">{Наименование товара}</div>
-                    <div class="col-6 text-center" th:text="${all_goods.getPrice()}">{WTYF}</div>
-                    <div class="col-2"></div>
+                    <div class="col-4 text-center" th:text="${all_goods.getPrice()}">{WTYF}</div>
+                    <div class="col-2">
+                        <form th:action="'/deleteGoods/' + ${all_goods.getId()}" method="post">
+                            <input type="submit" class="btn btn-danger" name="delete" value="DELETE">
+                        </form>
+                    </div>
                 </div>
             </div>
 

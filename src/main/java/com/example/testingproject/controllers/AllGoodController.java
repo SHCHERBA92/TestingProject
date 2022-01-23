@@ -4,6 +4,9 @@ import com.example.testingproject.services.GoodService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class AllGoodController {
@@ -19,5 +22,12 @@ public class AllGoodController {
     {
         model.addAttribute("AllGoods", goodService.getAllGoods());
         return "all_goods";
+    }
+
+    @PostMapping("/deleteGoods/{id}")
+    String deleteGoods(@PathVariable Long id)
+    {
+        goodService.deleteOrder(id);
+        return "redirect:/all_goods";
     }
 }

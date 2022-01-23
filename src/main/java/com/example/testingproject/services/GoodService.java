@@ -57,6 +57,18 @@ public class GoodService {
 
     }
 
+    // Удаление товара по id
+    public void deleteOrder(Long id)
+    {
+        if (goodRepo.findById(id).isEmpty())
+        {
+            throw new NullPointerException("Такого заказа нет");
+        }else {
+            goodRepo.deleteById(id);
+        }
+
+    }
+
     // Получение всех товаров
     public List<Goods> getAllGoods()
     {
