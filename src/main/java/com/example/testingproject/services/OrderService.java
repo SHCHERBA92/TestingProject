@@ -73,7 +73,8 @@ public class OrderService {
     //Получение определённого заказа по id
     public Orderr getOrderById(Long id)
     {
-        return orderRepo.getById(id);
+        return orderRepo.findById(id).get();
+
     }
 
 

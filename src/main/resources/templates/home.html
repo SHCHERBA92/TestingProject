@@ -39,7 +39,7 @@
                         <ul class="list-unstyled mt-3 mb-4" th:each="goods : ${Good1.get(order.getKey())}">
                             <li th:text="${goods.getName()}">{Список товаров}</li>
                         </ul>
-                        <button type="button" class="w-100 btn btn-lg btn-outline-primary">Детали</button>
+                        <a th:href="'/currentOrder/' + ${order.getKey().getId()}"><button type="submit" class="w-100 btn btn-lg btn-outline-primary">Детали</button></a>
                     </div>
                 </div>
             </div>
